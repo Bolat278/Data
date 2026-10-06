@@ -83,6 +83,30 @@ window.addEventListener('scroll', () => {
     lastScroll = currentScroll;
 });
 
+// Mobile menu toggle
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const navMenu = document.getElementById('navMenu');
+
+if (mobileMenuBtn && navMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+
+    // Close menu when clicking on a link
+    navMenu.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+            navMenu.classList.remove('active');
+        }
+    });
+}
+
 // Contact form handling
 const contactForm = document.getElementById('contactForm');
 
@@ -145,4 +169,169 @@ document.querySelectorAll('.info-card, .gallery-item, .testimonial-card').forEac
 document.addEventListener('DOMContentLoaded', () => {
     loadLanguagePreference();
     lucide.createIcons();
+    initChatbot();
 });
+
+// Chatbot functionality
+function initChatbot() {
+    const chatbotBtn = document.getElementById('chatbotBtn');
+    const chatbotModal = document.getElementById('chatbotModal');
+    const chatbotClose = document.getElementById('chatbotClose');
+    const chatbotInput = document.getElementById('chatbotInput');
+    const chatbotSend = document.getElementById('chatbotSend');
+    const chatbotMessages = document.getElementById('chatbotMessages');
+
+    if (!chatbotBtn || !chatbotModal) return;
+
+    // Toggle chatbot modal
+    chatbotBtn.addEventListener('click', () => {
+        chatbotModal.classList.toggle('active');
+        if (chatbotModal.classList.contains('active')) {
+            chatbotInput.focus();
+        }
+    });
+
+    chatbotClose.addEventListener('click', () => {
+        chatbotModal.classList.remove('active');
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!chatbotModal.contains(e.target) && !chatbotBtn.contains(e.target)) {
+            chatbotModal.classList.remove('active');
+        }
+    });
+
+    // Send message
+    async function sendMessage() {
+        const message = chatbotInput.value.trim();
+        if (!message) return;
+
+        // Add user message
+        addMessage(message, 'user');
+        chatbotInput.value = '';
+        chatbotSend.disabled = true;
+
+        // Show typing indicator
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'message bot-message typing-indicator';
+        typingDiv.innerHTML = `
+            <div class="message-avatar"><i data-lucide="bot"></i></div>
+            <div class="message-content">
+                <p>...</p>
+            </div>
+        `;
+        chatbotMessages.appendChild(typingDiv);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        lucide.createIcons();
+
+        // Get AI response
+        const response = await generateResponse(message);
+
+        // Remove typing indicator
+        typingDiv.remove();
+
+        // Add bot response
+        addMessage(response, 'bot');
+        chatbotSend.disabled = false;
+    }
+
+    chatbotSend.addEventListener('click', sendMessage);
+
+    chatbotInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+
+    function addMessage(text, type) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${type}-message`;
+
+        const avatarDiv = document.createElement('div');
+        avatarDiv.className = 'message-avatar';
+        avatarDiv.innerHTML = '<i data-lucide="bot"></i>';
+
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'message-content';
+        const p = document.createElement('p');
+        p.textContent = text;
+        contentDiv.appendChild(p);
+
+        messageDiv.appendChild(avatarDiv);
+        messageDiv.appendChild(contentDiv);
+
+        chatbotMessages.appendChild(messageDiv);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+
+        lucide.createIcons();
+    }
+
+    async function generateResponse(message) {
+        const lowerMessage = message.toLowerCase();
+
+        // Greetings
+        if (lowerMessage.includes('сәлем') || lowerMessage.includes('привет') || lowerMessage.includes('hello') || lowerMessage.includes('hi')) {
+            return currentLang === 'kk'
+                ? 'Сәлем! Мен Tair bot, Википедия арқылы ақпарат табуға көмектесемін. Қандай тақырып туралы білім қалайсыз?'
+                : 'Привет! Я Tair bot, помогу найти информацию через Википедию. О чем хотите узнать?';
+        }
+
+        // Search Wikipedia
+        try {
+            const lang = currentLang === 'kk' ? 'kk' : 'ru';
+            const searchUrl = `https://${lang}.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(message)}`;
+
+            const response = await fetch(searchUrl);
+            
+            if (response.ok) {
+                const data = await response.json();
+                
+                if (data.extract) {
+                    // Remove reference numbers like [1], [2]
+                    const cleanText = data.extract.replace(/\[\d+\]/g, '');
+                    
+                    // Limit text length
+                    const maxLength = 500;
+                    if (cleanText.length > maxLength) {
+                        return cleanText.substring(0, maxLength) + '...';
+                    }
+                    
+                    return cleanText;
+                }
+            }
+
+            // If direct search fails, try search API
+            const searchApiUrl = `https://${lang}.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(message)}&format=json&origin=*`;
+            const searchResponse = await fetch(searchApiUrl);
+            const searchData = await searchResponse.json();
+
+            if (searchData.query && searchData.query.search && searchData.query.search.length > 0) {
+                const firstResult = searchData.query.search[0];
+                const pageUrl = `https://${lang}.wikipedia.org/wiki/${encodeURIComponent(firstResult.title.replace(/ /g, '_'))}`;
+                
+                const summaryResponse = await fetch(`https://${lang}.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(firstResult.title)}`);
+                const summaryData = await summaryResponse.json();
+                
+                if (summaryData.extract) {
+                    const cleanText = summaryData.extract.replace(/\[\d+\]/g, '');
+                    const maxLength = 500;
+                    const text = cleanText.length > maxLength ? cleanText.substring(0, maxLength) + '...' : cleanText;
+                    
+                    return text + `\n\n📚 ${currentLang === 'kk' ? 'Толығырақ:' : 'Подробнее:'} ${pageUrl}`;
+                }
+            }
+
+            // Fallback response
+            return currentLang === 'kk'
+                ? `"${message}" туралы ақпарат табылмады. Басқа сұрақ сұраңыз немесе сөздерді өзгертіп көріңіз.`
+                : `Информация о "${message}" не найдена. Попробуйте задать другой вопрос или измените формулировку.`;
+
+        } catch (error) {
+            console.error('Wikipedia API error:', error);
+            return currentLang === 'kk'
+                ? 'Қате орын алды. Кейінірек қайталап көріңіз.'
+                : 'Произошла ошибка. Попробуйте позже.';
+        }
+    }
+}

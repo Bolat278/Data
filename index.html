@@ -15,14 +15,21 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo" data-kk="Ақпарат" data-ru="Информация">Ақпарат</div>
-            <div class="nav-menu">
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i data-lucide="menu"></i>
+            </button>
+            <div class="nav-menu" id="navMenu">
                 <a href="#hero" class="nav-link" data-kk="Басты" data-ru="Главная">Басты</a>
                 <a href="#info" class="nav-link" data-kk="Ақпарат" data-ru="Информация">Ақпарат</a>
                 <a href="#gallery" class="nav-link" data-kk="Галерея" data-ru="Галерея">Галерея</a>
                 <a href="#testimonials" class="nav-link" data-kk="Пікірлер" data-ru="Отзывы">Пікірлер</a>
                 <a href="#contact" class="nav-link" data-kk="Байланыс" data-ru="Контакты">Байланыс</a>
+                <div class="mobile-language-switcher">
+                    <button class="lang-btn active" data-lang="kk">ҚАЗ</button>
+                    <button class="lang-btn" data-lang="ru">РУС</button>
+                </div>
             </div>
-            <div class="language-switcher">
+            <div class="language-switcher desktop-only">
                 <button class="lang-btn active" data-lang="kk">ҚАЗ</button>
                 <button class="lang-btn" data-lang="ru">РУС</button>
             </div>
@@ -355,6 +362,42 @@
             </div>
         </div>
     </footer>
+
+    <!-- AI Chatbot Button -->
+    <button class="chatbot-btn" id="chatbotBtn">
+        <i data-lucide="bot"></i>
+    </button>
+
+    <!-- AI Chatbot Modal -->
+    <div class="chatbot-modal" id="chatbotModal">
+        <div class="chatbot-header">
+            <div class="chatbot-title">
+                <i data-lucide="bot"></i>
+                <span>Tair bot</span>
+            </div>
+            <button class="chatbot-close" id="chatbotClose">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="message bot-message">
+                <div class="message-avatar">
+                    <i data-lucide="bot"></i>
+                </div>
+                <div class="message-content">
+                    <p data-kk="Сәлем! Мен Tair bot, Википедия арқылы кез келген тақырып туралы ақпарат таба аламын. Қандай сұрақ сұрағыңыз келеді?" data-ru="Привет! Я Tair bot, могу найти информацию по любой теме через Википедию. Что хотите узнать?">
+                        Сәлем! Мен Tair bot, Википедия арқылы кез келген тақырып туралы ақпарат таба аламын. Қандай сұрақ сұрағыңыз келеді?
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbotInput" placeholder="Сұрақ жазыңыз / Напишите вопрос..." />
+            <button class="chatbot-send" id="chatbotSend">
+                <i data-lucide="send"></i>
+            </button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
     <script>
