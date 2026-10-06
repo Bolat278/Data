@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ақпаратпен жұмыс | Работа с информацией</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo" data-kk="Ақпарат" data-ru="Информация">Ақпарат</div>
+            <div class="nav-menu">
+                <a href="#hero" class="nav-link" data-kk="Басты" data-ru="Главная">Басты</a>
+                <a href="#info" class="nav-link" data-kk="Ақпарат" data-ru="Информация">Ақпарат</a>
+                <a href="#gallery" class="nav-link" data-kk="Галерея" data-ru="Галерея">Галерея</a>
+                <a href="#testimonials" class="nav-link" data-kk="Пікірлер" data-ru="Отзывы">Пікірлер</a>
+                <a href="#contact" class="nav-link" data-kk="Байланыс" data-ru="Контакты">Байланыс</a>
+            </div>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="kk">ҚАЗ</button>
+                <button class="lang-btn" data-lang="ru">РУС</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title" data-kk="Ақпаратпен жұмыс" data-ru="Работа с информацией">
+                    Ақпаратпен жұмыс
+                </h1>
+                <p class="hero-subtitle" data-kk="Заманауи әлемде ақпаратты өңдеу, сақтау және талдау қажетті дағдылар" data-ru="В современном мире обработка, хранение и анализ информации — необходимые навыки">
+                    Заманауи әлемде ақпаратты өңдеу, сақтау және талдау қажетті дағдылар
+                </p>
+                <div class="hero-buttons">
+                    <a href="#info" class="btn btn-primary" data-kk="Бастау" data-ru="Начать">Бастау</a>
+                    <a href="#contact" class="btn btn-secondary" data-kk="Байланыс" data-ru="Связаться">Байланыс</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card hero-card-1">
+                    <div class="card-icon"><i data-lucide="bar-chart-2"></i></div>
+                    <div class="card-text" data-kk="Деректер" data-ru="Данные">Деректер</div>
+                </div>
+                <div class="hero-card hero-card-2">
+                    <div class="card-icon"><i data-lucide="database"></i></div>
+                    <div class="card-text" data-kk="Сақтау" data-ru="Хранение">Сақтау</div>
+                </div>
+                <div class="hero-card hero-card-3">
+                    <div class="card-icon"><i data-lucide="search"></i></div>
+                    <div class="card-text" data-kk="Талдау" data-ru="Анализ">Талдау</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="info" id="info">
+        <div class="container">
+            <h2 class="section-title" data-kk="Негізгі ақпарат" data-ru="Основная информация">
+                Негізгі ақпарат
+            </h2>
+            <p class="section-subtitle" data-kk="Ақпаратпен жұмыс жасаудың маңызды аспектілері" data-ru="Важные аспекты работы с информацией">
+                Ақпаратпен жұмыс жасаудың маңызды аспектілері
+            </p>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon"><i data-lucide="search"></i></div>
+                    <h3 class="info-title" data-kk="Ақпаратты іздеу" data-ru="Поиск информации">
+                        Ақпаратты іздеу
+                    </h3>
+                    <p class="info-description" data-kk="Интернеттен, кітапханадан және басқа көздерден қажетті ақпаратты табу" data-ru="Поиск необходимой информации в интернете, библиотеках и других источниках">
+                        Интернеттен, кітапханадан және басқа көздерден қажетті ақпаратты табу
+                    </p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon"><i data-lucide="check-circle"></i></div>
+                    <h3 class="info-title" data-kk="Ақпаратты тексеру" data-ru="Проверка информации">
+                        Ақпаратты тексеру
+                    </h3>
+                    <p class="info-description" data-kk="Ақпараттың дұрыстығы мен сенімділігін растау" data-ru="Подтверждение точности и надежности информации">
+                        Ақпараттың дұрыстығы мен сенімділігін растау
+                    </p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon"><i data-lucide="file-text"></i></div>
+                    <h3 class="info-title" data-kk="Ақпаратты өңдеу" data-ru="Обработка информации">
+                        Ақпаратты өңдеу
+                    </h3>
+                    <p class="info-description" data-kk="Ақпаратты жинақтау, жіктеу және жүйелеу" data-ru="Сбор, классификация и систематизация информации">
+                        Ақпаратты жинақтау, жіктеу және жүйелеу
+                    </p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon"><i data-lucide="shield"></i></div>
+                    <h3 class="info-title" data-kk="Ақпаратты қорғау" data-ru="Защита информации">
+                        Ақпаратты қорғау
+                    </h3>
+                    <p class="info-description" data-kk="Жеке және құпия ақпаратты қауіпсіз сақтау" data-ru="Безопасное хранение личной и конфиденциальной информации">
+                        Жеке және құпия ақпаратты қауіпсіз сақтау
+                    </p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon"><i data-lucide="share-2"></i></div>
+                    <h3 class="info-title" data-kk="Ақпаратты беру" data-ru="Передача информации">
+                        Ақпаратты беру
+                    </h3>
+                    <p class="info-description" data-kk="Ақпаратты тиімді түрде басқаларға жеткізу" data-ru="Эффективная передача информации другим людям">
+                        Ақпаратты тиімді түрде басқаларға жеткізу
+                    </p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon"><i data-lucide="trending-up"></i></div>
+                    <h3 class="info-title" data-kk="Ақпаратты талдау" data-ru="Анализ информации">
+                        Ақпаратты талдау
+                    </h3>
+                    <p class="info-description" data-kk="Ақпаратты зерттеп, нәтижелерді қорытындылау" data-ru="Исследование информации и подведение итогов">
+                        Ақпаратты зерттеп, нәтижелерді қорытындылау
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title" data-kk="Галерея" data-ru="Галерея">
+                Галерея
+            </h2>
+            <p class="section-subtitle" data-kk="Ақпаратпен жұмыс көріністері" data-ru="Примеры работы с информацией">
+                Ақпаратпен жұмыс көріністері
+            </p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-content">
+                        <div class="gallery-icon"><i data-lucide="book-open"></i></div>
+                        <h3 class="gallery-title" data-kk="Электронды кітапхана" data-ru="Электронная библиотека">
+                            Электронды кітапхана
+                        </h3>
+                        <p class="gallery-desc" data-kk="Цифрлық кітаптар мен журналдар" data-ru="Цифровые книги и журналы">
+                            Цифрлық кітаптар мен журналдар
+                        </p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-content">
+                        <div class="gallery-icon"><i data-lucide="globe"></i></div>
+                        <h3 class="gallery-title" data-kk="Интернет іздеу" data-ru="Интернет-поиск">
+                            Интернет іздеу
+                        </h3>
+                        <p class="gallery-desc" data-kk="Ақпаратты онлайн табу" data-ru="Поиск информации онлайн">
+                            Ақпаратты онлайн табу
+                        </p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-content">
+                        <div class="gallery-icon"><i data-lucide="server"></i></div>
+                        <h3 class="gallery-title" data-kk="Деректер базасы" data-ru="База данных">
+                            Деректер базасы
+                        </h3>
+                        <p class="gallery-desc" data-kk="Құрылған ақпарат жүйесі" data-ru="Организованная система информации">
+                            Құрылған ақпарат жүйесі
+                        </p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-content">
+                        <div class="gallery-icon"><i data-lucide="smartphone"></i></div>
+                        <h3 class="gallery-title" data-kk="Мобильды қолданбалар" data-ru="Мобильные приложения">
+                            Мобильды қолданбалар
+                        </h3>
+                        <p class="gallery-desc" data-kk="Ақпаратты мобильді өңдеу" data-ru="Обработка информации на мобильных">
+                            Ақпаратты мобильді өңдеу
+                        </p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-content">
+                        <div class="gallery-icon"><i data-lucide="cloud"></i></div>
+                        <h3 class="gallery-title" data-kk="Бұлттық сақтау" data-ru="Облачное хранилище">
+                            Бұлттық сақтау
+                        </h3>
+                        <p class="gallery-desc" data-kk="Ақпаратты онлайн сақтау" data-ru="Онлайн хранение информации">
+                            Ақпаратты онлайн сақтау
+                        </p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-content">
+                        <div class="gallery-icon"><i data-lucide="lock"></i></div>
+                        <h3 class="gallery-title" data-kk="Криптография" data-ru="Криптография">
+                            Криптография
+                        </h3>
+                        <p class="gallery-desc" data-kk="Ақпаратты шифрлау" data-ru="Шифрование информации">
+                            Ақпаратты шифрлау
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title" data-kk="Пікірлер" data-ru="Отзывы">
+                Пікірлер
+            </h2>
+            <p class="section-subtitle" data-kk="Пайдаланушылардың пікірлері" data-ru="Мнения пользователей">
+                Пайдаланушылардың пікірлері
+            </p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Ainur" alt="Avatar" />
+                    </div>
+                    <div class="testimonial-content">
+                        <p class="testimonial-text" data-kk="Бұл сайт ақпаратпен жұмыс жасаудың негіздерін түсінуге көмектесті. Өте пайдалы!" data-ru="Этот сайт помог понять основы работы с информацией. Очень полезно!">
+                            Бұл сайт ақпаратпен жұмыс жасаудың негіздерін түсінуге көмектесті. Өте пайдалы!
+                        </p>
+                        <div class="testimonial-author">
+                            <h4 class="author-name" data-kk="Айнұр Смаилова" data-ru="Айнур Смаилова">Айнұр Смаилова</h4>
+                            <p class="author-role" data-kk="Студент" data-ru="Студент">Студент</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Daniyar" alt="Avatar" />
+                    </div>
+                    <div class="testimonial-content">
+                        <p class="testimonial-text" data-kk="Ақпаратты қорғау туралы ақпарат өте өзекті. Рахмет!" data-ru="Информация о защите информации очень актуальна. Спасибо!">
+                            Ақпаратты қорғау туралы ақпарат өте өзекті. Рахмет!
+                        </p>
+                        <div class="testimonial-author">
+                            <h4 class="author-name" data-kk="Данияр Ермеков" data-ru="Данияр Ермеков">Данияр Ермеков</h4>
+                            <p class="author-role" data-kk="Программист" data-ru="Программист">Программист</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Gulnar" alt="Avatar" />
+                    </div>
+                    <div class="testimonial-content">
+                        <p class="testimonial-text" data-kk="Оқушыларымға ақпаратпен жұмыс туралы түсіндіру үшін қолданамын" data-ru="Использую для объяснения работы с информацией ученикам">
+                            Оқушыларымға ақпаратпен жұмыс туралы түсіндіру үшін қолданамын
+                        </p>
+                        <div class="testimonial-author">
+                            <h4 class="author-name" data-kk="Гүлнар Қасымова" data-ru="Гульнар Касымова">Гүлнар Қасымова</h4>
+                            <p class="author-role" data-kk="Мұғалім" data-ru="Учитель">Мұғалім</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title" data-kk="Байланыс" data-ru="Контакты">
+                Байланыс
+            </h2>
+            <p class="section-subtitle" data-kk="Сізбен байланысқа қуаныштымыз" data-ru="Будем рады связаться с вами">
+                Сізбен байланысқа қуаныштымыз
+            </p>
+            <div class="contact-wrapper">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name" data-kk="Аты-жөніңіз" data-ru="Ваше имя">Аты-жөніңіз</label>
+                        <input type="text" id="name" name="name" required placeholder="Айнұр Смаилова / Айнур Смаилова">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" data-kk="Email" data-ru="Email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="example@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="message" data-kk="Хабарлама" data-ru="Сообщение">Хабарлама</label>
+                        <textarea id="message" name="message" rows="5" required data-kk-placeholder="Хабарламаңызды жазыңыз..." data-ru-placeholder="Напишите ваше сообщение..." placeholder="Хабарламаңызды жазыңыз..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" data-kk="Жіберу" data-ru="Отправить">Жіберу</button>
+                </form>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i data-lucide="mail"></i></div>
+                        <div class="contact-text">
+                            <h4 data-kk="Email" data-ru="Email">Email</h4>
+                            <p>dkamalov870@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i data-lucide="map-pin"></i></div>
+                        <div class="contact-text">
+                            <h4 data-kk="Мекен-жай" data-ru="Адрес">Мекен-жай</h4>
+                            <p>Улица Амангельды Каримуллина, 2/1а</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i data-lucide="phone"></i></div>
+                        <div class="contact-text">
+                            <h4 data-kk="Телефон" data-ru="Телефон">Телефон</h4>
+                            <p>87074206625</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3 class="footer-logo" data-kk="Ақпаратпен жұмыс" data-ru="Работа с информацией">
+                        Ақпаратпен жұмыс
+                    </h3>
+                    <p class="footer-desc" data-kk="Заманауи ақпарат технологиялары туралы білім" data-ru="Знания о современных информационных технологиях">
+                        Заманауи ақпарат технологиялары туралы білім
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h4 data-kk="Сілтемелер" data-ru="Ссылки">Сілтемелер</h4>
+                    <ul>
+                        <li><a href="#hero" data-kk="Басты" data-ru="Главная">Басты</a></li>
+                        <li><a href="#info" data-kk="Ақпарат" data-ru="Информация">Ақпарат</a></li>
+                        <li><a href="#gallery" data-kk="Галерея" data-ru="Галерея">Галерея</a></li>
+                        <li><a href="#contact" data-kk="Байланыс" data-ru="Контакты">Байланыс</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4 data-kk="Әлеуметтік желі" data-ru="Социальные сети">Әлеуметтік желі</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i data-lucide="instagram"></i></a>
+                        <a href="#" class="social-link"><i data-lucide="facebook"></i></a>
+                        <a href="#" class="social-link"><i data-lucide="twitter"></i></a>
+                        <a href="#" class="social-link"><i data-lucide="linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-kk="© 2024 Барлық құқықтар қорғалған" data-ru="© 2024 Все права защищены">
+                    © 2024 Барлық құқықтар қорғалған
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
